@@ -1,156 +1,247 @@
 # !/usr/bin/python
 # -*- coding: utf-8 -*-
-import time
-import MySQLdb
-import utils
 import os
+import time
 
-conn_code = MySQLdb.connect(host="localhost",user="root",passwd="111111",db="CodePedia_test")
+import MySQLdb
+
+import utils
+
+conn_code = MySQLdb.connect(host="10.107.10.130",user="root",passwd="111111",db="CodePedia")
 cursor_code = conn_code.cursor()
+conn_code.autocommit(False)
 
-conn_sonar = MySQLdb.connect(host="localhost",user="root",passwd="111111",db="sonar")
+conn_sonar = MySQLdb.connect(host="10.107.10.130",user="root",passwd="111111",db="sonar")
 cursor_sonar = conn_sonar.cursor()
 
 # 定义一些常量
 blob_table = "blobs"
 function_table = "functions"
+project_table = "projects"
+sonar_table = "sonar_results"
 
-def findPointer(table_name):
-    # 读取pointers表中的数据
-    start_pointer = 1
-    current_pointer = start_pointer
-    end_pointer = start_pointer
+def createTable(table_name):
+    sql = "CREATE TABLE IF NOT EXISTS " + table_name + " (`id` int(11) NOT NULL AUTO_INCREMENT, " \
+          "`project_id` int(11) DEFAULT NULL, " \
+          "`blob_id` int(11) DEFAULT NULL, " \
+          "`blob_line` int(11) DEFAULT NULL, " \
+          "`function_id` int(11) DEFAULT NULL," \
+          "`function_line` int(11) DEFAULT NULL," \
+          "`rule_id` int(11) DEFAULT NULL, " \
+          "`rule_name` varchar(255) DEFAULT NULL, " \
+          "`rule_priority` int(11) DEFAULT NULL, " \
+          "`message` varchar(4000) DEFAULT NULL, " \
+          "`effort` int(11) DEFAULT NULL, " \
+          "`status` varchar(20) DEFAULT NULL, " \
+          "`severity` varchar(10) DEFAULT NULL, " \
+          "PRIMARY KEY (`id`), " \
+          "KEY `project_id` (`project_id`), " \
+          "KEY `blob_id` (`blob_id`), " \
+          "KEY `rule_id` (`rule_id`), " \
+          "KEY `rule_name` (`rule_name`), " \
+          "KEY `rule_priority` (`rule_priority`), " \
+          "KEY `effort` (`effort`), " \
+          "KEY `status` (`status`)," \
+          "KEY `function_id` (`function_id`)" \
+          ") ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+    cursor_code.execute(sql)
+    conn_code.commit()
 
-    cursor_sonar.execute("select id,table_name,start_pointer,end_pointer,pointer from pointers where table_name=%s",(table_name,))
-    pointerItem = cursor_sonar.fetchone()
-    if pointerItem == None:
-        # 表示还没有这条记录
-        sql = "select min(id) as min_id, max(id) as max_id from " + table_name
-        cursor_code.execute(sql)
-        tmp = cursor_code.fetchone()
-        min_id = tmp[0]
-        max_id = tmp[1]
-        cursor_sonar.execute("insert into pointers (table_name,start_pointer,end_pointer,pointer) values (%s,%s,%s,%s)",(table_name,min_id,max_id,min_id))
-        conn_sonar.commit()
-        print "插入了%s在pointers表中的记录" % (blob_table)
-        start_pointer = min_id
-        current_pointer = min_id
-        end_pointer = max_id
-    else:
-        start_pointer = pointerItem[2]
-        end_pointer = pointerItem[3]
-        current_pointer = pointerItem[4]
 
-    return start_pointer, current_pointer, end_pointer
+# 搬运分析结果函数
+def moveResult(project_id,projectKey,projectName):
+    createTable(sonar_table) # 如果结果表不存在则创建一个新的
+
+    # 读取当前项目function_lineNum和blob_lineNum的对应关系
+    lineNumMap = {}
+    cursor_code.execute("select blob_linenum,function_linenum,function_id,blob_id from `lines` where project_id=%s",(project_id,))
+    items = cursor_code.fetchall()
+    for item in items:
+        blob_linenum = item[0]
+        function_linenum = item[1]
+        function_id = item[2]
+        blob_id = item[3]
+        lineNumMap.setdefault(blob_id,{})
+        lineNumMap[blob_id][blob_linenum] = {"function_id":function_id,"function_linenum":function_linenum}
+
+
+    # 读取当前project_id对应blobs表中所有的文件
+    cursor_code.execute("select id,path from blobs where project_id=%s",(project_id,))
+    blobs = cursor_code.fetchall()
+    blobMap = {} # 用于存储当前项目的blob路径和id对应关系
+    if len(blobs) == 0:
+        # 表示没有对应project的blob文件
+        return None
+    for blob in blobs:
+        blob_id = blob[0]
+        blob_path = blob[1]
+        blobMap[blob_path] = blob_id
+
+    # 读取所有的rules表中的数据
+    ruleMap = {}
+    try:
+        cursor_sonar.execute("select id,name,plugin_rule_key,plugin_name,priority from rules")
+        items = cursor_sonar.fetchall()
+        for item in items:
+            id = item[0]
+            name = item[1]
+            plugin_rule_key = item[2]
+            plugin_name = item[3]
+            priority = item[4]
+            rule = {"name":name, "plugin_rule_key":plugin_rule_key, "plugin_name":plugin_name, "priority":priority}
+            ruleMap[id] = rule
+    except Exception,e:
+        print "没有rule表"
+        return None
+
+    # 读取当前项目在projects表中的基本信息
+    cursor_sonar.execute("select project_uuid from projects where kee=%s",(projectKey,))
+    project = cursor_sonar.fetchone()
+    if project == None:
+        return None
+    project_uuid = project[0]
+
+    # 读取project对应的所有文件级别的component_uuid
+    cursor_sonar.execute("select uuid,path from projects where project_uuid=%s and scope=%s",(project_uuid,"FIL"))
+    items = cursor_sonar.fetchall()
+    for item in items:
+        component_uuid = item[0]
+        component_path = item[1]
+        if component_path != None and str(component_path).find(projectName) >= 0:
+            component_path = component_path[len(projectName):] # 获取文件的相对路径
+        else:
+            continue
+        # 获取当前component对应的blob_id
+        blob_id = None
+        if blobMap.has_key(component_path) == False:
+            continue
+        else:
+            blob_id = blobMap[component_path]
+
+        # 读取issues表对应的数据
+        cursor_sonar.execute("select id,kee,rule_id,severity,message,line,status,effort,created_at,updated_at,issue_creation_date,issue_update_date,tags,component_uuid,issue_type from issues where component_uuid=%s",(component_uuid,))
+        items = cursor_sonar.fetchall()
+        for item in items:
+            id = item[0]
+            kee = item[1]
+            rule_id = item[2]
+            severity = item[3]
+            message = item[4]
+            blob_line = item[5]
+            status = item[6]
+            effort = item[7]
+            created_at = item[8]
+            updated_at = item[9]
+            issue_creation_date = item[10]
+            issue_update_date = item[11]
+            tags = item[12]
+            component_uuid = item[13]
+            issue_type = item[14]
+            rule_name = None
+            rule_priority = None
+            function_id = None # 用于记录对应到哪个方法的哪一行
+            function_linenum = None
+
+            if ruleMap.has_key(rule_id) == True:
+                rule_name = ruleMap[rule_id]["name"]
+                rule_priority = ruleMap[rule_id]["priority"]
+            else:
+                # 表示数据有问题
+                continue
+
+            if lineNumMap.has_key(blob_id) == True and lineNumMap[blob_id].has_key(blob_line) == True:
+                # 表示数据没有问题
+                tmp = lineNumMap[blob_id][blob_line]
+                function_id = tmp["function_id"]
+                function_linenum = tmp["function_linenum"]
+
+            # 将结果存储到数据库中
+            cursor_code.execute("insert into sonar_results (project_id,blob_id,blob_line,function_id,function_line,rule_id,rule_name,rule_priority,message,effort,status,severity) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                (project_id,blob_id,blob_line,function_id,function_linenum,rule_id,rule_name,rule_priority,message,effort,status,severity))
+    conn_code.commit()
+
+    print "完成了项目:%s分析结果数据的迁移" % (project_id)
 
 
 if __name__ == "__main__":
 
     while True:
-        # 处理blobs表
-        blob_start_pointer, blob_current_pointer, blob_end_pointer = findPointer(blob_table)
-        function_start_pointer, function_current_pointer, function_end_pointer = findPointer(function_table)
 
-        # 获取未处理的数据
-        cursor_code.execute("select id,path,code,project_id,file_index,language_id from blobs where id>=%s and id<=%s",(blob_current_pointer,blob_end_pointer))
-        unhandleBlobs = cursor_code.fetchall()
+        # 判断哪些projects已经被处理过了
+        handledProjects = set()
+        try:
+            cursor_sonar.execute("select kee,project_uuid from projects where scope=%s",("PRJ",))
+            tmps = cursor_sonar.fetchall()
+            for tmp in tmps:
+                kee = tmp[0]
+                project_uuid = tmp[1]
+                # 查看issues表中有没有对应的issue
+                cursor_sonar.execute("select * from issues where project_uuid=%s",(project_uuid,))
+                issueList = cursor_sonar.fetchall()
+                if len(issueList) <= 0:
+                    # 表示处理的过程中出错了
+                    continue
+                else:
+                    # 表示确实处理过了
+                    handledProjects.add(kee[len("project:"):])
+        except Exception,e:
+            # 表示没有当前数据库
+            print "初始化数据库"
 
-        cursor_code.execute("select id,path,code,blob_id,project_id,function_index,language_id from functions where id>=%s and id<=%s",(function_current_pointer,function_end_pointer))
-        unhandleFunctions = cursor_code.fetchall()
+        # 读取所有项目
+        projectIds = set()
+        cursor_code.execute("select id from projects")
+        projects = cursor_code.fetchall()
+        for project in projects:
+            id = project[0]
+            projectIds.add(str(id))
 
-        # 读取所有的language
-        languageMap = {}
-        cursor_code.execute("select id,name from languages")
-        languages = cursor_code.fetchall()
-        for tmp in languages:
-            id = tmp[0]
-            language = tmp[1]
-            languageMap[id] = language
+        # 生成所有未处理的项目
+        unhandledProjects = projectIds - handledProjects
 
+        for project_id in unhandledProjects:
+            cursor_code.execute("select id,name,path,code,project_id,file_index,language_id from blobs where project_id=%s",(project_id,))
+            blobs = cursor_code.fetchall()
+            files = [] # 用来组装成一个project
+            for blob in blobs:
+                blob_id = blob[0]
+                blob_name = blob[1]
+                blob_path = blob[2]
+                blob_code = blob[3]
+                blob_project_id = blob[4]
+                blob_file_index = blob[5]
+                blob_language_id = blob[6]
 
-        # 处理blobs表
-        for unhandleBlob in unhandleBlobs:
-            blob_id = unhandleBlob[0]
-            print "handle %s:%s" % (blob_table,blob_id)
-            blob_path = unhandleBlob[1]
-            blob_code = unhandleBlob[2]
-            blob_project_id = unhandleBlob[3]
-            blob_file_index = unhandleBlob[4]
-            blob_language_id = unhandleBlob[5]
+                if blob_name == None or blob_path == None:
+                    continue # 表示这个文件在数据库中的数据有问题,分析的时候不考虑这个文件了
+                relPathIndex = str(blob_path).rfind(blob_name)
+                if relPathIndex < 0:
+                    continue # 表示这个文件在数据库中的数据有问题
+                blob_relpath = blob_path[:relPathIndex]
 
-            if languageMap.has_key(blob_language_id) == False:
-                # 表示数据有问题
+                file = {"code":blob_code, "relPath":blob_relpath, "path":blob_path}
+                files.append(file)
+
+            projectKey = "project:" + str(project_id)
+            projectName = "project:" + str(project_id)
+            projectPath = utils.assemble("project:" + str(project_id), files)
+            sonar_cmd = 'sonar-scanner -Dsonar.projectKey=' + projectKey + ' -Dsonar.projectName=' + projectName \
+                    + ' -Dsonar.projectVersion=1.0 -Dsonar.sources=' + projectPath + \
+                    ' -Dsonar.sourceEncoding=UTF-8'
+
+            # 需要判断是不是执行成功了
+            result = os.system(sonar_cmd)
+            if result != 0:
+                # 表示执行失败了
+                print "执行失败_项目:" + str(project_id)
+                os.system("rm -fr " + projectPath) # 删除临时拼接的工程
                 continue
-            blob_language = languageMap.get(blob_language_id)
+            else:
+                print "执行成功_项目:" + str(project_id)
+                os.system("rm -fr " + projectPath) # 删除临时拼接的工程
 
-            # 将代码封装成一个文件
-            tmpFile,tmpFilePath = utils.createTmpFile(blob_code)
+            # 转存数据
+            moveResult(project_id, projectKey, projectName)
 
-            if tmpFile == None:
-                # 表示创建文件程序出问题了
-                continue
-
-            # 调用sonar进行代码分析
-            utils.analyze(blob_table, blob_id, blob_language, tmpFile, tmpFilePath)
-            # 删除文件
-            os.remove(tmpFilePath)
-
-            cursor_sonar.execute("update pointers set pointer=%s where table_name=%s",(blob_id + 1, blob_table))
-            conn_sonar.commit()
-
-        # 处理functions表
-        for unhandleFunction in unhandleFunctions:
-            function_id = unhandleFunction[0]
-            print "handle %s:%s" % (function_table,function_id)
-            function_path = unhandleFunction[1]
-            function_code = unhandleFunction[2]
-            function_blob_id = unhandleFunction[3]
-            function_project_id = unhandleFunction[4]
-            function_index = unhandleFunction[4]
-            function_language_id = unhandleFunction[5]
-
-            if languageMap.has_key(function_language_id) == False:
-                # 表示数据有问题
-                continue
-            function_language = languageMap.get(function_language_id)
-
-            # 将代码封装成一个文件
-            tmpFile,tmpFilePath = utils.createTmpFile(function_code)
-
-            if tmpFile == None:
-                # 表示创建文件程序出问题了
-                continue
-
-            # 调用sonar进行代码分析
-            utils.analyze(function_table, function_id, function_language, tmpFile, tmpFilePath)
-            # 删除文件
-            os.remove(tmpFilePath)
-
-            cursor_sonar.execute("update pointers set pointer=%s where table_name=%s",(function_id + 1, function_table))
-            conn_sonar.commit()
-
-        # 查看end_pointer有没有发生变化
-        sql = "select max(id) as max_id from " + blob_table
-        cursor_code.execute(sql)
-        tmp = cursor_code.fetchone()
-        blob_end_pointer_new = tmp[0]
-
-        sql = "select max(id) as max_id from " + function_table
-        cursor_code.execute(sql)
-        tmp = cursor_code.fetchone()
-        function_end_pointer_new = tmp[0]
-
-        if blob_end_pointer < blob_end_pointer_new:
-            # 更新数据库
-            cursor_sonar.execute("update pointers set end_pointer=%s where table_name=%s",(blob_end_pointer_new, blob_table))
-            conn_sonar.commit()
-
-        if function_end_pointer < function_end_pointer_new:
-            # 更新数据库
-            cursor_sonar.execute("update pointers set end_pointer=%s where table_name=%s",(function_end_pointer_new, function_table))
-            conn_sonar.commit()
-
-        if blob_end_pointer >= blob_end_pointer_new and function_end_pointer >= function_end_pointer_new:
-            # 处理完了数据库中没有处理的数据
-            print "开始休眠..."
-            time.sleep(1800) # 单位是秒 (半个小时)
+        print "处理完了一批工程,休眠1000秒..."
+        time.sleep(1000) # 表示每次处理之后休眠1000s

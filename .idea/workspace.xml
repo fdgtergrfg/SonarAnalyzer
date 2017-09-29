@@ -14,7 +14,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SonarAnalyze$main.coverage" NAME="main Coverage Results" MODIFIED="1506581338129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analyzer" />
+    <SUITE FILE_PATH="coverage/SonarAnalyze$main.coverage" NAME="main Coverage Results" MODIFIED="1506690211589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analyzer" />
     <SUITE FILE_PATH="coverage/SonarAnalyze$utils.coverage" NAME="utils Coverage Results" MODIFIED="1506433455583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analyzer" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -26,37 +26,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/analyzer/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7806638">
+              <caret line="240" column="62" selection-start-line="240" selection-start-column="62" selection-end-line="240" selection-end-column="62" />
               <folding>
-                <element signature="e#43#54#0" expanded="true" />
-                <marker date="1506568547000" expanded="true" signature="572:660" placeholder="select id,ta... pointers" />
-                <marker date="1506568547000" expanded="true" signature="782:830" placeholder="select min(i... " />
-                <marker date="1506568547000" expanded="true" signature="782:831" placeholder="select min(i... missing_value" />
-                <marker date="1506568547000" expanded="true" signature="994:1082" placeholder="insert into pointers... " />
-                <marker date="1506568547000" expanded="true" signature="1790:1878" placeholder="select path,... blobs" />
-                <marker date="1506568547000" expanded="true" signature="1998:2102" placeholder="select id,pa... blobs" />
-                <marker date="1506568547000" expanded="true" signature="2283:2312" placeholder="select id,na... languages" />
-                <marker date="1506568547000" expanded="true" signature="3417:3467" placeholder="update point... " />
-                <marker date="1506568547000" expanded="true" signature="4605:4655" placeholder="update point... " />
-                <marker date="1506568547000" expanded="true" signature="4771:4800" placeholder="select max(i... " />
-                <marker date="1506568547000" expanded="true" signature="4771:4801" placeholder="select max(i... blobs" />
-                <marker date="1506568547000" expanded="true" signature="4940:4970" placeholder="select max(i... missing_value" />
-                <marker date="1506568547000" expanded="true" signature="5208:5262" placeholder="update point... " />
-                <marker date="1506568547000" expanded="true" signature="5447:5501" placeholder="update point... " />
+                <element signature="e#43#52#0" expanded="true" />
+                <marker date="1506695652000" expanded="true" signature="534:547" placeholder="CREATE TABLE... missing_value" />
+                <marker date="1506695652000" expanded="true" signature="534:581" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:618" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:668" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:715" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:764" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:815" placeholder="CREATE TABLE... IF" />
+                <marker date="1506695652000" expanded="true" signature="534:867" placeholder="CREATE TABLE... IF" />
+                <marker date="1506695652000" expanded="true" signature="534:913" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:967" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1020" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1073" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1119" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1169" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1186" placeholder="CREATE TABLE... IF" />
+                <marker date="1506695652000" expanded="true" signature="534:1256" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1304" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1346" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1388" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1434" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1488" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1528" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1567" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="534:1568" placeholder="CREATE TABLE... IF" />
+                <marker date="1506695652000" expanded="true" signature="534:1600" placeholder="CREATE TABLE... IF" />
+                <marker date="1506695652000" expanded="true" signature="534:1616" placeholder="CREATE TABLE... IF" />
+                <marker date="1506695652000" expanded="true" signature="534:1667" placeholder="CREATE TABLE... sonar_results" />
+                <marker date="1506695652000" expanded="true" signature="1926:2015" placeholder="select blob_... lines" />
+                <marker date="1506695652000" expanded="true" signature="2424:2443" placeholder="select id,pa... " />
+                <marker date="1506695652000" expanded="true" signature="2424:2467" placeholder="select id,pa... blobs" />
+                <marker date="1506695652000" expanded="true" signature="2424:2469" placeholder="select id,pa... blobs" />
+                <marker date="1506695652000" expanded="true" signature="2831:2893" placeholder="select id,na... rules" />
+                <marker date="1506695652000" expanded="true" signature="3389:3435" placeholder="select id,na... projects" />
+                <marker date="1506695652000" expanded="true" signature="3631:3652" placeholder="select uuid " />
+                <marker date="1506695652000" expanded="true" signature="3631:3667" placeholder="select uuid projects" />
+                <marker date="1506695652000" expanded="true" signature="3631:3681" placeholder="select uuid projects" />
+                <marker date="1506695652000" expanded="true" signature="3631:3683" placeholder="select uuid projects" />
+                <marker date="1506695652000" expanded="true" signature="3631:3696" placeholder="select uuid projects" />
+                <marker date="1506695652000" expanded="true" signature="4284:4444" placeholder="select id,ke... issues" />
+                <marker date="1506695652000" expanded="true" signature="4284:4450" placeholder="select id,ke... issues" />
+                <marker date="1506695652000" expanded="true" signature="4284:4468" placeholder="select id,ke... issues" />
+                <marker date="1506695652000" expanded="true" signature="5769:5959" placeholder="insert into sonar_results... " />
+                <marker date="1506695652000" expanded="true" signature="6343:6380" placeholder="select kee f... projects" />
+                <marker date="1506695652000" expanded="true" signature="6343:6390" placeholder="select kee f... projects" />
+                <marker date="1506695652000" expanded="true" signature="6343:6393" placeholder="select kee f... projects" />
+                <marker date="1506695652000" expanded="true" signature="6343:6395" placeholder="select kee f... projects" />
+                <marker date="1506695652000" expanded="true" signature="6624:6666" placeholder="select * fro... issues" />
+                <marker date="1506695652000" expanded="true" signature="7109:7132" placeholder="select id fr... projects" />
+                <marker date="1506695652000" expanded="true" signature="7432:7521" placeholder="select id,pa... blobs" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/analyzer/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9222798">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
               <folding>
                 <element signature="e#44#58#0" expanded="true" />
               </folding>
@@ -76,8 +111,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/analyzer/main.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/analyzer/utils.py" />
+        <option value="$PROJECT_DIR$/analyzer/main.py" />
       </list>
     </option>
   </component>
@@ -87,8 +124,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="1280" />
+    <option name="y" value="-183" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -157,8 +196,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitChange4Projects" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/analyzer" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -426,23 +474,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <frame x="1280" y="-183" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21646342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124068156" sideWeight="0.4954955" order="0" side_tool="false" content_ui="combo" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4119318" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.124068156" sideWeight="0.5045045" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2398374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -452,27 +500,27 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995943" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18820679" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4119318" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -490,73 +538,46 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/analyzer/utils.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/analyzer/main.py</url>
+          <line>232</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/analyzer/main.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="7" />
+          <line>170</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/analyzer/main.py</url>
-          <line>114</line>
-          <option name="timeStamp" value="11" />
+          <line>97</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/analyzer/main.py</url>
+          <line>160</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/analyzer/main.py</url>
+          <line>226</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/analyzer/utils.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="13" />
+          <line>64</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/analyzer/main.py</url>
+          <line>199</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="60" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/analyzer/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#43#54#0" expanded="true" />
-            <marker date="1506568547000" expanded="true" signature="572:660" placeholder="select id,ta... pointers" />
-            <marker date="1506568547000" expanded="true" signature="782:830" placeholder="select min(i... " />
-            <marker date="1506568547000" expanded="true" signature="782:831" placeholder="select min(i... missing_value" />
-            <marker date="1506568547000" expanded="true" signature="994:1082" placeholder="insert into pointers... " />
-            <marker date="1506568547000" expanded="true" signature="1790:1878" placeholder="select path,... blobs" />
-            <marker date="1506568547000" expanded="true" signature="1998:2102" placeholder="select id,pa... blobs" />
-            <marker date="1506568547000" expanded="true" signature="2283:2312" placeholder="select id,na... languages" />
-            <marker date="1506568547000" expanded="true" signature="3417:3467" placeholder="update point... " />
-            <marker date="1506568547000" expanded="true" signature="4605:4655" placeholder="update point... " />
-            <marker date="1506568547000" expanded="true" signature="4771:4800" placeholder="select max(i... " />
-            <marker date="1506568547000" expanded="true" signature="4771:4801" placeholder="select max(i... blobs" />
-            <marker date="1506568547000" expanded="true" signature="4940:4970" placeholder="select max(i... missing_value" />
-            <marker date="1506568547000" expanded="true" signature="5208:5262" placeholder="update point... " />
-            <marker date="1506568547000" expanded="true" signature="5447:5501" placeholder="update point... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analyzer/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="e#44#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py2.7/lib/python2.7/site-packages/MySQLdb/connections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda2/envs/py2.7/lib/python2.7/subprocess.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -565,36 +586,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analyzer/main.py">
+    <entry file="file://$USER_HOME$/anaconda2/envs/py2.7/lib/python2.7/os.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43575418">
+          <caret line="170" column="33" selection-start-line="170" selection-start-column="33" selection-end-line="170" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding>
-            <element signature="e#43#54#0" expanded="true" />
-            <marker date="1506568547000" expanded="true" signature="572:660" placeholder="select id,ta... pointers" />
-            <marker date="1506568547000" expanded="true" signature="782:830" placeholder="select min(i... " />
-            <marker date="1506568547000" expanded="true" signature="782:831" placeholder="select min(i... missing_value" />
-            <marker date="1506568547000" expanded="true" signature="994:1082" placeholder="insert into pointers... " />
-            <marker date="1506568547000" expanded="true" signature="1790:1878" placeholder="select path,... blobs" />
-            <marker date="1506568547000" expanded="true" signature="1998:2102" placeholder="select id,pa... blobs" />
-            <marker date="1506568547000" expanded="true" signature="2283:2312" placeholder="select id,na... languages" />
-            <marker date="1506568547000" expanded="true" signature="3417:3467" placeholder="update point... " />
-            <marker date="1506568547000" expanded="true" signature="4605:4655" placeholder="update point... " />
-            <marker date="1506568547000" expanded="true" signature="4771:4800" placeholder="select max(i... " />
-            <marker date="1506568547000" expanded="true" signature="4771:4801" placeholder="select max(i... blobs" />
-            <marker date="1506568547000" expanded="true" signature="4940:4970" placeholder="select max(i... missing_value" />
-            <marker date="1506568547000" expanded="true" signature="5208:5262" placeholder="update point... " />
-            <marker date="1506568547000" expanded="true" signature="5447:5501" placeholder="update point... " />
-          </folding>
+          <caret line="1801" column="0" selection-start-line="1801" selection-start-column="0" selection-end-line="1801" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py2.7/lib/python2.7/site-packages/MySQLdb/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analyzer/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9222798">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
           <folding>
             <element signature="e#44#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py2.7/lib/python2.7/site-packages/MySQLdb/cursors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analyzer/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7806638">
+          <caret line="240" column="62" selection-start-line="240" selection-start-column="62" selection-end-line="240" selection-end-column="62" />
+          <folding>
+            <element signature="e#43#52#0" expanded="true" />
+            <marker date="1506695652000" expanded="true" signature="534:547" placeholder="CREATE TABLE... missing_value" />
+            <marker date="1506695652000" expanded="true" signature="534:581" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:618" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:668" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:715" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:764" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:815" placeholder="CREATE TABLE... IF" />
+            <marker date="1506695652000" expanded="true" signature="534:867" placeholder="CREATE TABLE... IF" />
+            <marker date="1506695652000" expanded="true" signature="534:913" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:967" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1020" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1073" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1119" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1169" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1186" placeholder="CREATE TABLE... IF" />
+            <marker date="1506695652000" expanded="true" signature="534:1256" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1304" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1346" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1388" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1434" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1488" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1528" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1567" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="534:1568" placeholder="CREATE TABLE... IF" />
+            <marker date="1506695652000" expanded="true" signature="534:1600" placeholder="CREATE TABLE... IF" />
+            <marker date="1506695652000" expanded="true" signature="534:1616" placeholder="CREATE TABLE... IF" />
+            <marker date="1506695652000" expanded="true" signature="534:1667" placeholder="CREATE TABLE... sonar_results" />
+            <marker date="1506695652000" expanded="true" signature="1926:2015" placeholder="select blob_... lines" />
+            <marker date="1506695652000" expanded="true" signature="2424:2443" placeholder="select id,pa... " />
+            <marker date="1506695652000" expanded="true" signature="2424:2467" placeholder="select id,pa... blobs" />
+            <marker date="1506695652000" expanded="true" signature="2424:2469" placeholder="select id,pa... blobs" />
+            <marker date="1506695652000" expanded="true" signature="2831:2893" placeholder="select id,na... rules" />
+            <marker date="1506695652000" expanded="true" signature="3389:3435" placeholder="select id,na... projects" />
+            <marker date="1506695652000" expanded="true" signature="3631:3652" placeholder="select uuid " />
+            <marker date="1506695652000" expanded="true" signature="3631:3667" placeholder="select uuid projects" />
+            <marker date="1506695652000" expanded="true" signature="3631:3681" placeholder="select uuid projects" />
+            <marker date="1506695652000" expanded="true" signature="3631:3683" placeholder="select uuid projects" />
+            <marker date="1506695652000" expanded="true" signature="3631:3696" placeholder="select uuid projects" />
+            <marker date="1506695652000" expanded="true" signature="4284:4444" placeholder="select id,ke... issues" />
+            <marker date="1506695652000" expanded="true" signature="4284:4450" placeholder="select id,ke... issues" />
+            <marker date="1506695652000" expanded="true" signature="4284:4468" placeholder="select id,ke... issues" />
+            <marker date="1506695652000" expanded="true" signature="5769:5959" placeholder="insert into sonar_results... " />
+            <marker date="1506695652000" expanded="true" signature="6343:6380" placeholder="select kee f... projects" />
+            <marker date="1506695652000" expanded="true" signature="6343:6390" placeholder="select kee f... projects" />
+            <marker date="1506695652000" expanded="true" signature="6343:6393" placeholder="select kee f... projects" />
+            <marker date="1506695652000" expanded="true" signature="6343:6395" placeholder="select kee f... projects" />
+            <marker date="1506695652000" expanded="true" signature="6624:6666" placeholder="select * fro... issues" />
+            <marker date="1506695652000" expanded="true" signature="7109:7132" placeholder="select id fr... projects" />
+            <marker date="1506695652000" expanded="true" signature="7432:7521" placeholder="select id,pa... blobs" />
           </folding>
         </state>
       </provider>
