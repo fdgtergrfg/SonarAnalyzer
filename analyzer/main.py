@@ -71,6 +71,7 @@ def moveResult(project_id,projectKey,projectName):
     blobMap = {} # 用于存储当前项目的blob路径和id对应关系
     if len(blobs) == 0:
         # 表示没有对应project的blob文件
+        print "没有找到对应project的blob文件"
         return None
     for blob in blobs:
         blob_id = blob[0]
@@ -98,6 +99,7 @@ def moveResult(project_id,projectKey,projectName):
     cursor_sonar.execute("select project_uuid from projects where kee=%s",(projectKey,))
     project = cursor_sonar.fetchone()
     if project == None:
+        print "没有读取到当前项目在sonar数据库中的信息"
         return None
     project_uuid = project[0]
 
@@ -242,6 +244,16 @@ if __name__ == "__main__":
 
             # 转存数据
             moveResult(project_id, projectKey, projectName)
+
+        for project_id in projectIds:
+            # 查看sonar_results表中是不是有对应的数据
+            cursor_code.execute("select * from sonar_results where project_id=%s",(project_id,))
+            if len(cursor_code.fetchall()) == 0:
+                # 表示没有对应的记录
+                print "项目%s转存数据库出现了问题" % (project_id)
+                projectKey = "project:" + str(project_id)
+                projectName = "project:" + str(project_id)
+                moveResult(project_id,projectKey,projectName)
 
         print "处理完了一批工程,休眠1000秒..."
         time.sleep(1000) # 表示每次处理之后休眠1000s
