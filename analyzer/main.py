@@ -7,11 +7,11 @@ import MySQLdb
 
 import utils
 
-conn_code = MySQLdb.connect(host="10.107.10.130",user="root",passwd="111111",db="CodePedia")
+conn_code = MySQLdb.connect(host="localhost",user="root",passwd="111111",db="codepedia")
 cursor_code = conn_code.cursor()
 conn_code.autocommit(False)
 
-conn_sonar = MySQLdb.connect(host="10.107.10.130",user="root",passwd="111111",db="sonar")
+conn_sonar = MySQLdb.connect(host="localhost",user="root",passwd="111111",db="sonar")
 cursor_sonar = conn_sonar.cursor()
 
 # 定义一些常量
