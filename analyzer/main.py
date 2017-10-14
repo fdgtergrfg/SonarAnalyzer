@@ -7,7 +7,7 @@ import MySQLdb
 
 import utils
 
-conn_code = MySQLdb.connect(host="10.107.10.130",user="root",passwd="111111",db="CodePedia")
+conn_code = MySQLdb.connect(host="10.107.10.130",user="root",passwd="111111",db="code_pedia")
 cursor_code = conn_code.cursor()
 conn_code.autocommit(False)
 
@@ -15,9 +15,6 @@ conn_sonar = MySQLdb.connect(host="10.107.10.130",user="root",passwd="111111",db
 cursor_sonar = conn_sonar.cursor()
 
 # 定义一些常量
-blob_table = "blobs"
-function_table = "functions"
-project_table = "projects"
 sonar_table = "sonar_results"
 
 def createTable(table_name):
@@ -192,7 +189,7 @@ if __name__ == "__main__":
 
         # 读取所有项目
         projectIds = set()
-        cursor_code.execute("select id from projects")
+        cursor_code.execute("select id from projects_project")
         projects = cursor_code.fetchall()
         for project in projects:
             id = project[0]
@@ -202,7 +199,7 @@ if __name__ == "__main__":
         unhandledProjects = projectIds - handledProjects
 
         for project_id in unhandledProjects:
-            cursor_code.execute("select id,name,path,code,project_id,file_index,language_id from blobs where project_id=%s",(project_id,))
+            cursor_code.execute("select id,name,path,code,project_id,file_index from projects_file where project_id=%s",(project_id,))
             blobs = cursor_code.fetchall()
             files = [] # 用来组装成一个project
             for blob in blobs:
@@ -212,7 +209,6 @@ if __name__ == "__main__":
                 blob_code = blob[3]
                 blob_project_id = blob[4]
                 blob_file_index = blob[5]
-                blob_language_id = blob[6]
 
                 if blob_name == None or blob_path == None:
                     continue # 表示这个文件在数据库中的数据有问题,分析的时候不考虑这个文件了
@@ -242,8 +238,8 @@ if __name__ == "__main__":
                 print "执行成功_项目:" + str(project_id)
                 os.system("rm -fr " + projectPath) # 删除临时拼接的工程
 
-            # 转存数据
-            moveResult(project_id, projectKey, projectName)
+                # 转存数据
+                moveResult(project_id, projectKey, projectName)
 
         for project_id in projectIds:
             # 查看sonar_results表中是不是有对应的数据
