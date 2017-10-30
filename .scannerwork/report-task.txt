@@ -1,6 +1,6 @@
-projectKey=project:7
+projectKey=project:18
 serverUrl=http://192.168.80.214:9000/sonar
 serverVersion=6.5.0.27846
-dashboardUrl=http://192.168.80.214:9000/sonar/dashboard/index/project:7
-ceTaskId=AV7QDEs8Mbx6WOp0XSFS
-ceTaskUrl=http://192.168.80.214:9000/sonar/api/ce/task?id=AV7QDEs8Mbx6WOp0XSFS
+dashboardUrl=http://192.168.80.214:9000/sonar/dashboard/index/project:18
+ceTaskId=AV9rjj5cCUx2w-VIS4M2
+ceTaskUrl=http://192.168.80.214:9000/sonar/api/ce/task?id=AV9rjj5cCUx2w-VIS4M2
