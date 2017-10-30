@@ -247,7 +247,7 @@ if __name__ == "__main__":
                 # 转存数据
                 moveResult(project_id, projectKey, projectName)
         
-         for project_id in projectIds:
+        for project_id in projectIds:
             # 查看sonar_results表中是不是有对应的数据
             cursor_code.execute("select * from sonar_results where project_id=%s",(project_id,))
             if len(cursor_code.fetchall()) == 0:
